@@ -9,6 +9,6 @@ const authenticateUserByConnectionIdController = new AuthenticateUserByConnectio
 const authenticateRoutes = Router();
 
 authenticateRoutes.post("/sessions", authenticateUserController.handle);
-authenticateRoutes.post("/sessionn_connection_id", authenticateUserByConnectionIdController.handle);
+authenticateRoutes.post("/sessions_connection_id", authenticateUserByConnectionIdController.handle);
 
 export { authenticateRoutes };
