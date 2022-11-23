@@ -8,6 +8,9 @@ class UsersRepository implements IUsersRepository {
     async findByConnectionId(connectionId: string): Promise<User | null> {
         const findUser = await prisma.user.findFirst({ where: { connection_id: connectionId } });
 
+        console.log('connectionId', connectionId);
+        console.log('findUser:', findUser);
+
         return findUser;
     }
    
