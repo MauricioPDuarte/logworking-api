@@ -34,6 +34,12 @@ class UsersRepository implements IUsersRepository {
 
         return findUser;
     }
+
+    async count(): Promise<number> {
+        const count = await prisma.user.count();
+
+        return count;
+    }
     
 }
 

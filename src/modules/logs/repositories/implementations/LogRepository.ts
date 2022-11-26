@@ -1,5 +1,5 @@
 import { UserDTO } from "@modules/accounts/dtos/UserDTO";
-import { PrismaClient, User } from "@prisma/client";
+import { Prisma, PrismaClient, User } from "@prisma/client";
 import { ILogRepository } from "../ILogRepository";
 
 const prisma = new PrismaClient()
@@ -12,6 +12,18 @@ class LogRepository implements ILogRepository {
         user_id: log.userId,
        }});
     }
+
+    async listByUser(user_id: number) {
+        return await prisma.log.findMany({ where: {
+            user_id: user_id
+        }, include: {user: true}})
+    }
+
+    async listAll() {
+        return await prisma.log.findMany({ include: {user: true} });
+    }
+
+
 }
 
 export { LogRepository }

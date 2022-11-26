@@ -21,11 +21,12 @@ model Log {
 }
 
 model User {
-  id                Int     @id @default(autoincrement())
-  email             String  @unique
+  id                Int       @id @default(autoincrement())
+  email             String    @unique
   name              String?
   password          String
   connection_id     String
+  is_admin          Boolean   @default(false)
   logs              Log[]
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt @default(now())

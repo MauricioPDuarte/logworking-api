@@ -1,4 +1,4 @@
-import { LogRepository } from "@modules/sync/repositories/implementations/LogRepository";
+import { LogRepository } from "@modules/logs/repositories/implementations/LogRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
